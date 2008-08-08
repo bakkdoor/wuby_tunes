@@ -3,7 +3,6 @@
 if File.exists? "wuby.pid"
   File.open "wuby.pid", "r" do |f|
     f.each_line do |line|
-      #@wuby_pids << line
       if line.to_i != 0
         puts "killing pid #{line}"
         IO.popen("kill #{line}")
