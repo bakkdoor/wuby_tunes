@@ -13,6 +13,28 @@ def app
   OSA.app 'iTunes'
 end
 
+def current_song
+  app.current_track
+end
+
+def has_cover?
+  current_song.artworks.length > 0
+end
+
+def minutes
+  current_song.duration.div(60)
+end
+
+def seconds
+  (current_song.duration - minutes*60).ceil
+end
+
+def cover_data
+  current_song.artworks[0].data
+end
+
+
+
 # little date enhancements...
 class Date
   # defines a date in german-style

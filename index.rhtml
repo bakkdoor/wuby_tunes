@@ -3,34 +3,24 @@
 <%
     require 'lib/helpers.rb'
     
-    @song = app.current_track
-    
-    @minutes = @song.duration.div(60)
-    @seconds = (@song.duration - @minutes*60).ceil
-    
-    @has_cover = false
-    
-    if @song.artworks.length > 0
-        @has_cover = true
-        @artwork_data = @song.artworks[0].data
-        
+    if has_cover?
         f = File.open "current_artwork.jpg", "wb" do |f|
-            f.write @artwork_data
+            f.write cover_data
         end
     end
 %>
 
-<%= redirect :time => @song.duration.ceil %>
+<%= redirect :time => current_song.duration.ceil %>
 
 <p>
     <h3>Aktueller Titel in iTunes:</h3>
     <h2>
-        <%= "#{@song.artist} - #{@song.name}<br>
-        (<i>#{@song.album}</i> / #{@song.year})" %>
+        <%= "#{current_song.artist} - #{current_song.name}<br>
+        (<i>#{current_song.album}</i> / #{current_song.year})" %>
     </h2>
     <h4>[<a href="back.rhtml">Back</a>] || [<a href="play_pause.rhtml"><%= app.player_state == OSA::ITunes::EPLS::PLAYING ? "Pause" : "Play" %></a>] || [<a href="next.rhtml">Next</a>]</h4>
     <p>
-        <% if @has_cover %>
+        <% if has_cover? %>
             <img src="current_artwork.jpg" width="275">
         <% end %>
     </p>
@@ -41,23 +31,23 @@
             <table>
                 <tr>
                     <td>Length:</td>
-                    <td><%= "#{@minutes}:#{@seconds}" %> min</td>
+                    <td><%= "#{minutes}:#{seconds}" %> min</td>
                 </tr>
                 <tr>
                     <td>Counter:</td>
-                    <td><%= @song.played_count %></td>
+                    <td><%= current_song.played_count %></td>
                 </tr>
                 <tr>
                     <td>Last played:</td>
-                    <td><%= @song.played_date.german %></td>
+                    <td><%= current_song.played_date.german %></td>
                 </tr>
                 <tr>
                     <td>Rating:</td>
-                    <td><%= "#{@song.rating} %" %></td>
+                    <td><%= "#{current_song.rating} %" %></td>
                 </tr>
                 <tr>
                     <td>Comment:</td>
-                    <td><%= @song.comment %></td>
+                    <td><%= current_song.comment %></td>
                 </tr>
             </table>
         </center>
