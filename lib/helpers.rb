@@ -10,22 +10,18 @@ end
 class Date
   # defines a date in german-style
   def german()  
-  		date_split = self.to_s.split("-")
-
-  		day = date_split[2]
-  		month = date_split[1]
-  		year = date_split[0]
-		
-  		"#{day}.#{month}.#{year}"
+    prepare
+  	"#{@day}.#{@month}.#{year}"
   end
   
   def english
-    date_split = self.to_s.split("-")
-
-		day = date_split[2]
-		month = date_split[1]
-		year = date_split[0]
-	
-		"#{month}.#{day}.#{year}"
+    prepare
+		"#{@month}.#{@day}.#{year}"
+  end
+  
+  private
+  def prepare
+    @day = day < 10 ? "0#{day}" : day
+		@month = month < 10 ? "0#{month}" : month
   end
 end
