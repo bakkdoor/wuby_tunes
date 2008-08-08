@@ -8,6 +8,8 @@
             f.write cover_data
         end
     end
+    
+    @play_date = current_song.played_date || Date.today
 %>
 
 <%= redirect :time => current_song.duration.ceil %>
@@ -39,7 +41,7 @@
                 </tr>
                 <tr>
                     <td>Last played:</td>
-                    <td><%= current_song.played_date.german %></td>
+                    <td><%= @play_date.german %></td>
                 </tr>
                 <tr>
                     <td>Rating:</td>
@@ -53,5 +55,9 @@
         </center>
     </h4>
 </p>
+
+<div id="footer">
+    Page loaded in <%= @timing %> seconds.
+</div>
 
 <%= wrender "layout/footer.rhtml" %>

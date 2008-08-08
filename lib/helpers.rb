@@ -38,9 +38,9 @@ end
 # little date enhancements...
 class Date
   # defines a date in german-style
-  def german()  
+  def german()
     prepare
-  	"#{@day}.#{@month}.#{year}"
+  	"#{@day}.#{@month}.#{year}" 
   end
   
   def english
