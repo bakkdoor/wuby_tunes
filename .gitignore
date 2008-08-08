@@ -1,3 +1,4 @@
 *.log.*
 *.log
 current_artwork.jpg
+.DS_Store
