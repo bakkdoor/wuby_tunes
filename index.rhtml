@@ -3,6 +3,7 @@
 <%
     require 'rubygems'
     require 'rbosa'
+    require 'lib/helpers.rb'
         
     app = OSA.app 'iTunes'
     
@@ -21,11 +22,9 @@
             f.write @artwork_data
         end
     end
-    
-    #OSA.app('iChat').status_message = "Playing: #{@song.name}"
 %>
 
-<META HTTP-EQUIV=REFRESH CONTENT="<%= @song.duration.ceil %>; URL=/">
+<%= redirect :time => @song.duration.ceil %>
 
 <p>
     <h3>Aktueller Titel in iTunes:</h3>
@@ -54,7 +53,7 @@
                 </tr>
                 <tr>
                     <td>Zuletzt gespielt:</td>
-                    <td><%= @song.played_date %></td>
+                    <td><%= @song.played_date.german %></td>
                 </tr>
                 <tr>
                     <td>Bewertung:</td>

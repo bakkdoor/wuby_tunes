@@ -1,13 +1,10 @@
 <%= wrender "layout/header.rhtml" %>
 
 <%
-    require 'rubygems'
-    require 'rbosa'
-    
     app = OSA.app 'iTunes'
     app.back_track
 %>
 
-<META HTTP-EQUIV=REFRESH CONTENT="0; URL=/">.
-    
+<%= redirect %>
+
 <%= wrender "layout/footer.rhtml" %>
