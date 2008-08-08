@@ -17,7 +17,7 @@ Get it here:
 
 Or via rubygems: 
 
-    sudo gem install rbosa
+    sudo gem install rubyosa
 
 
 h2. How to run
