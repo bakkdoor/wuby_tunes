@@ -28,7 +28,6 @@
 # ToDo:
 # - bug: http://domain/directory//page.html confuses relative links
 
-
 require "socket"
 require "thread"
 require "cgi"
