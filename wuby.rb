@@ -511,8 +511,9 @@ def daemon
   if fork == nil
     
     # save pid in wuby.pid
-    File.open "wuby.pid", "w" do |f|
-      f.write Process.pid
+    puts "Starting new thread with pid #{Process.pid}"
+    File.open "wuby.pid", "a" do |f|
+      f.write "#{Process.pid}\n"
     end
     
     Process.setsid # create new session, disconnect from tty
