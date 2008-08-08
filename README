@@ -3,14 +3,14 @@ It is licensed under the GPL v2. For more information take a look at the LICENSE
 
 Created by Christopher Bertels (bakkdoor) in 2008
   
-== Dependencies ==
+*Dependencies*
 Currently wubyTunes only has one external dependency: 
   
   - ruby-osa, a OSA-binding for Ruby, making it easy to control Mac OS X apps directly from Ruby (similar to AppleScript) 
     Get it here: http://rubyosa.rubyforge.org/
     Or via rubygems: sudo gem install rbosa
 
-== How to run ==
+*How to run*
 To run wubyTunes, simply run the following command:
   
   ruby wuby.rb
