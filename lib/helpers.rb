@@ -4,8 +4,7 @@ def redirect(options = {})
   @time = options[:time] ||= 0
   
   "<META HTTP-EQUIV=REFRESH CONTENT=\"#{@time}; URL=/\">"
-end
-
+end  
 
 # little date enhancements...
 class Date
