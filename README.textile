@@ -1,8 +1,7 @@
-h3. wubyTunes is a very lightweight iTunes-Controller-Webapp running on the micro webserver Wuby (see: http://www.wuby.org)
-h3. It is licensed under the GPL v2. For more information take a look at the LICENSE file or at http://www.gnu.org/licenses/ 
+wubyTunes is a very lightweight iTunes-Controller-Webapp running on the micro webserver Wuby (see: http://www.wuby.org)
+It is licensed under the GPL v2. For more information take a look at the LICENSE file or at http://www.gnu.org/licenses/ 
 
-
-h5. Created by Christopher Bertels (bakkdoor) in 2008
+Created by Christopher Bertels (bakkdoor) in 2008
   
 h2. Dependencies
 
