@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'rbosa'
+
 # redirect to a given url in a specified time
 def redirect(options = {})
   @url = options[:url] ||= "/"
@@ -5,6 +8,10 @@ def redirect(options = {})
   
   "<META HTTP-EQUIV=REFRESH CONTENT=\"#{@time}; URL=/\">"
 end  
+
+def app
+  OSA.app 'iTunes'
+end
 
 # little date enhancements...
 class Date

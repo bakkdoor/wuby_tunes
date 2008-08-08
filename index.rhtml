@@ -1,11 +1,7 @@
 <%= wrender "layout/header.rhtml" %>
 
 <%
-    require 'rubygems'
-    require 'rbosa'
     require 'lib/helpers.rb'
-        
-    app = OSA.app 'iTunes'
     
     @song = app.current_track
     
