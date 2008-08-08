@@ -510,6 +510,12 @@ end
 # TODO move this into wuby. Provide both a background and foreground func.
 def daemon
   if fork == nil
+    
+    # save pid in wuby.pid
+    File.open "wuby.pid", "w" do |f|
+      f.write Process.pid
+    end
+    
     Process.setsid # create new session, disconnect from tty
     [$stdin, $stdout, $stderr].each { |stream| stream.reopen "/dev/null" }
     Wuby.new.listen
