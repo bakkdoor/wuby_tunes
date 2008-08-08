@@ -32,7 +32,7 @@
         <%= "#{@song.artist} - #{@song.name}<br>
         (<i>#{@song.album}</i> / #{@song.year})" %>
     </h2>
-    <h4>[<a href="back.rhtml">Zurück</a>] || [<a href="play_pause.rhtml">Play/Pause</a>] || [<a href="next.rhtml">Weiter</a>]</h4>
+    <h4>[<a href="back.rhtml">Zurück</a>] || [<a href="play_pause.rhtml"><%= app.player_state == OSA::ITunes::EPLS::PLAYING ? "Pause" : "Play" %></a>] || [<a href="next.rhtml">Weiter</a>]</h4>
     <p>
         <% if @has_cover %>
             <img src="current_artwork.jpg" width="275">
