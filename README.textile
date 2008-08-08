@@ -9,8 +9,9 @@ Currently wubyTunes only has one external dependency:
   
     ruby-osa
 
-A OSA-binding for Ruby, making it easy to control Mac OS X apps directly from Ruby (similar to AppleScript) 
-Get it here: http://rubyosa.rubyforge.org/
+A OSA-binding for Ruby, making it easy to control Mac OS X apps directly from Ruby (similar to AppleScript).
+Get it here: 
+    :http://rubyosa.rubyforge.org/
 Or via rubygems: 
     sudo gem install rbosa
 
