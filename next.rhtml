@@ -1,0 +1,13 @@
+<%= wrender "layout/header.rhtml" %>
+
+<%
+    require 'rubygems'
+    require 'rbosa'
+    
+    app = OSA.app 'iTunes'
+    app.next_track
+%>
+
+<META HTTP-EQUIV=REFRESH CONTENT="0; URL=/">.
+    
+<%= wrender "layout/footer.rhtml" %>

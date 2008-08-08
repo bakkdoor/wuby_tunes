@@ -1,0 +1,69 @@
+<%= wrender "layout/header.rhtml" %>
+
+<%
+    require 'rubygems'
+    require 'rbosa'
+        
+    app = OSA.app 'iTunes'
+    
+    @song = app.current_track
+    
+    @minutes = @song.duration.div(60)
+    @seconds = (@song.duration - @minutes*60).ceil
+    
+    @has_cover = false
+    
+    if @song.artworks.length > 0
+        @has_cover = true
+        @artwork_data = @song.artworks[0].data
+        
+        f = File.open "current_artwork.jpg", "wb" do |f|
+            f.write @artwork_data
+        end
+    end
+    
+    #OSA.app('iChat').status_message = "Playing: #{@song.name}"
+%>
+
+<META HTTP-EQUIV=REFRESH CONTENT="<%= @song.duration.ceil %>; URL=/">
+
+<p>
+    <h3>Aktueller Titel in iTunes:</h3>
+    <h2><%= "#{@song.artist} - #{@song.name} (<i>#{@song.album}</i> : #{@song.year})" %></h2>
+    <h4>[<a href="back.rhtml">Zurück</a>] || [<a href="play_pause.rhtml">Play/Pause</a>] || [<a href="next.rhtml">Weiter</a>]</h4>
+    <p>
+        <% if @has_cover %>
+            <img src="current_artwork.jpg" width="275">
+        <% end %>
+    </p>
+</p>
+<p>
+    <h4>
+        <center>
+            <table>
+                <tr>
+                    <td>Länge:</td>
+                    <td><%= "#{@minutes}:#{@seconds}" %> min</td>
+                </tr>
+                <tr>
+                    <td>Zähler:</td>
+                    <td><%= @song.played_count %></td>
+                </tr>
+                <tr>
+                    <td>Zuletzt gespielt:</td>
+                    <td><%= @song.played_date %></td>
+                </tr>
+                <tr>
+                    <td>Bewertung:</td>
+                    <td><%= "#{@song.rating} %" %></td>
+                </tr>
+                <tr>
+                    <td>Kommentar:</td>
+                    <td><%= @song.comment %></td>
+                </tr>
+            </table>
+        </center>
+    </h4>
+</p>
+
+<%= wrender "layout/footer.rhtml" %>
