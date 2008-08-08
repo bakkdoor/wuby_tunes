@@ -32,7 +32,7 @@
         <%= "#{@song.artist} - #{@song.name}<br>
         (<i>#{@song.album}</i> / #{@song.year})" %>
     </h2>
-    <h4>[<a href="back.rhtml">Zurück</a>] || [<a href="play_pause.rhtml"><%= app.player_state == OSA::ITunes::EPLS::PLAYING ? "Pause" : "Play" %></a>] || [<a href="next.rhtml">Weiter</a>]</h4>
+    <h4>[<a href="back.rhtml">Back</a>] || [<a href="play_pause.rhtml"><%= app.player_state == OSA::ITunes::EPLS::PLAYING ? "Pause" : "Play" %></a>] || [<a href="next.rhtml">Next</a>]</h4>
     <p>
         <% if @has_cover %>
             <img src="current_artwork.jpg" width="275">
@@ -44,23 +44,23 @@
         <center>
             <table>
                 <tr>
-                    <td>Länge:</td>
+                    <td>Length:</td>
                     <td><%= "#{@minutes}:#{@seconds}" %> min</td>
                 </tr>
                 <tr>
-                    <td>Zähler:</td>
+                    <td>Counter:</td>
                     <td><%= @song.played_count %></td>
                 </tr>
                 <tr>
-                    <td>Zuletzt gespielt:</td>
+                    <td>Last played:</td>
                     <td><%= @song.played_date.german %></td>
                 </tr>
                 <tr>
-                    <td>Bewertung:</td>
+                    <td>Rating:</td>
                     <td><%= "#{@song.rating} %" %></td>
                 </tr>
                 <tr>
-                    <td>Kommentar:</td>
+                    <td>Comment:</td>
                     <td><%= @song.comment %></td>
                 </tr>
             </table>
