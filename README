@@ -2,3 +2,19 @@ wubyTunes is a very lightweight iTunes-Controller-Webapp running on the micro we
 It is licensed under the GPL v2. For more information take a look at the LICENSE file or at http://www.gnu.org/licenses/
 
 Created by Christopher Bertels (bakkdoor) in 2008
+  
+== Dependencies ==
+Currently wubyTunes only has one external dependency: 
+  
+  - ruby-osa, a OSA-binding for Ruby, making it easy to control Mac OS X apps directly from Ruby (similar to AppleScript) 
+    Get it here: http://rubyosa.rubyforge.org/
+    Or via rubygems: sudo gem install rbosa
+
+== How to run ==
+To run wubyTunes, simply run the following command:
+  
+  ruby wuby.rb
+    
+Which will start a wuby webserver thread on port 8080.
+For more available options on wuby, checkout the official website: http://www.wuby.org/
+or take a look in the wuby.rb file.
