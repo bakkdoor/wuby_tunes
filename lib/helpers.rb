@@ -6,7 +6,7 @@ def redirect(options = {})
   @url = options[:url] ||= "/"
   @time = options[:time] ||= 0
   
-  "<META HTTP-EQUIV=REFRESH CONTENT=\"#{@time}; URL=/\">"
+  "<META HTTP-EQUIV=REFRESH CONTENT=\"#{@time}; URL=#{@url}\">"
 end  
 
 def app
